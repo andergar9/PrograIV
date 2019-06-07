@@ -15,7 +15,13 @@ public class testUsuario {
 		/*Crear gestor de persistencia */	
 		emf = Persistence.createEntityManagerFactory("Persistencia");
 		manager = emf.createEntityManager();
-		
+		@SuppressWarnings("unchecked")
+		List <Usuario> user = (List<Usuario>)manager.createQuery("FROM Usuarios").getResultList();
+		System.out.println("Hay"+ user.size() +"Usuarios en el sistema");
+	}
+}
+	
+	/*
 		Usuario u = new Usuario("1A","Santi","Servicio1","Prioridad1");
 		
 		manager.getTransaction().begin();
@@ -32,8 +38,8 @@ public class testUsuario {
 		System.out.println("Hay"+ user.size() +"Usuarios en el sistema");
 		for(Usuario us:user) {
 			System.out.println(us.toString());
-		}
+		}*/
 		
-	}
+	
 
-}
+

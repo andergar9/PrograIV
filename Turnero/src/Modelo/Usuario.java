@@ -1,15 +1,27 @@
 package Modelo;
 
-public class Usuario extends Persona {
+public class Usuario {
 	private String id;
 	private String servicio;
 	private String priori;
+	private String name;
 	
 	public Usuario(String id, String name, String servicio, String priori) {
-		super(name);
+		this.name = name;
 		this.id = id;
 		this.servicio = servicio;
 		this.priori = priori;
+	}
+	
+	public Usuario() {
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getId() {

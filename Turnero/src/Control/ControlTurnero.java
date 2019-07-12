@@ -11,6 +11,7 @@ public class ControlTurnero implements ActionListener{
 	
 	private InterfazVista vista;
 	Metodos m = new Metodos();
+	Usuario u = new Usuario();
 
 	public ControlTurnero(InterfazVista vista, Usuario modelo) {
 		this.vista = vista;
@@ -20,7 +21,7 @@ public class ControlTurnero implements ActionListener{
 	public void actionPerformed(ActionEvent evento) {
 		Usuario u = vista.getUsuario();
 		if(evento.getActionCommand().equals(InterfazVista.REGISTRAR)) {
-			vista.escribeUsuario(null);
+			vista.escribeUsuario("Ingrese info");
 			try {
 				m.agregarRegistro(u);
 			} catch (IOException e) {

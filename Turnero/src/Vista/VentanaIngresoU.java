@@ -1,4 +1,4 @@
-package Vista;
+	package Vista;
 
 import java.awt.BorderLayout;
 import java.io.IOException;
@@ -66,10 +66,10 @@ public class VentanaIngresoU extends JFrame implements InterfazVista{
 		getContentPane().add(priori);
 		priori.setColumns(10);
 		
-		JButton Registrar = new JButton("Registrar");
-		Registrar.setBounds(177, 249, 89, 23);
+		JButton registrar = new JButton("Registrar");
+		registrar.setBounds(177, 249, 89, 23);
 		registrar.setActionCommand(REGISTRAR);
-		getContentPane().add(Registrar);
+		getContentPane().add(registrar);
 		
 		JLabel resultado = new JLabel("Ingrese datos");
 		resultado.setBounds(177, 11, 89, 20);

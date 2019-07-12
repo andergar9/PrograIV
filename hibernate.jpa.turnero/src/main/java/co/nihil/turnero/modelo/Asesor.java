@@ -2,9 +2,14 @@ package co.nihil.turnero.modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +18,8 @@ public class Asesor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Column
-	private ArrayList<String> servicios; 
+	@OneToMany(mappedBy="Asesor",cascade =CascadeType.ALL, fetch=FetchType.EAGER)
+	List<String> servicios = new ArrayList<String>(); 
 	
 	@Column(name = "Nombre")
 	private String nombre;
@@ -38,7 +43,7 @@ public class Asesor implements Serializable {
 	
 	
 	public ArrayList<String> getServicios() {
-		return servicios;
+		return (ArrayList<String>) servicios;
 	}
 
 	public void setServicios(ArrayList<String> servicios) {

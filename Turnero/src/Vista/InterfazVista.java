@@ -4,7 +4,6 @@ import Control.ControlTurnero;
 import Modelo.Usuario;
 
 public interface InterfazVista {
-	
 	void setControlador(ControlTurnero c);
 	void comenzar();
 	

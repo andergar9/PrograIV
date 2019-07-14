@@ -58,13 +58,12 @@ public class AdministrarServicios {
 	}
 	
 	
-	/**
 	public void listarServicios() {
-		List<Servicios> servicio = List<Servicios>;
+		List<Servicios> servicio = new ArrayList<Servicios>();
 				for(Servicios ser : servicio) {
 					System.out.print(ser.getNombre()+"\n");
 				}
 				System.out.print("Total Servicios: " + servicio.size());
-	}**/
+	}
 
 }

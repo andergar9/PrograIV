@@ -98,7 +98,9 @@ public class VistaAsesores {
 		comboBoxServicios.setBounds(128, 142, 143, 20);
 		frame.getContentPane().add(comboBoxServicios);
 		List<Servicios> listaServicios = as.obtenerListaServicios();
-		comboBoxServicios.addItem(listaServicios);
+		for (Servicios s : listaServicios) {
+			comboBoxServicios.addItem(s);
+		}
 		
 		
 		final JRadioButton estadoActivar = new JRadioButton("Activar");

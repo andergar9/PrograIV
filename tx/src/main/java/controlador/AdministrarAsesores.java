@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import modelo.Asesor;
+import modelo.Servicios;
 
 public class AdministrarAsesores {
 	
@@ -33,7 +34,7 @@ public class AdministrarAsesores {
 			BufferedWriter bw = new BufferedWriter(fw);
 			try (PrintWriter pw = new PrintWriter(bw)){
 				for(Asesor c:a) {
-					pw.println(c.getNombre()+"|"+c.getServicios().get(0)+"|"+c.getServicios().get(1)+"|"+c.getServicios().get(2));
+					pw.println(c.getNombre()+"|"+c.getServicios());
 				}
 			}
 		}catch (IOException e) {
@@ -43,10 +44,28 @@ public class AdministrarAsesores {
 	}
 	
 	public void listarAsesor() {
+		List<Asesor> l = new ArrayList<Asesor>();
 		for (Asesor asesor:asesores) {
 			System.out.println(asesor.getId()+"|"+asesor.getNombre()+"|"+ asesor.getServicios());
 		}
+		System.out.print("Asesores: " + l.size());
 	}
+	
+	/**
+	public void agregarServicioAsesor(String id, ArrayList<String> servicios) {
+		for(Asesor asesor:obtenerAsesores()) {
+			if(id==asesor.getId()) {
+				asesor.setServicios(servicios);
+			}
+		}
+		
+	}**/
+	
+	public List<Asesor> obtenerAsesores(){
+		List<Asesor> listaAsesores = new ArrayList<Asesor>();
+		return listaAsesores;
+	}
+	
 
 
 }

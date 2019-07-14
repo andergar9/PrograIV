@@ -3,14 +3,13 @@ package modelo;
 import java.util.ArrayList;
 
 
-public class Asesor extends Persona {
-	
-	private ArrayList<String> servicios; 
+public class Asesor extends Persona { 
+
 	private String id;
+	private String servicios;
 	private boolean estado;
 	
-
-	public Asesor(String id, String nombre, ArrayList<String> servicios, boolean estado) {
+	public Asesor(String id, String nombre, String servicios, boolean estado) {
 		super(nombre);
 		this.id = id;
 		this.servicios = servicios;
@@ -25,13 +24,14 @@ public class Asesor extends Persona {
 		this.id = id;
 	}
 	
-	public ArrayList<String> getServicios() {
+	public String getServicios() {
 		return servicios;
 	}
 
-	public void setServicios(ArrayList<String> servicios) {
+	public void setServicios(String servicios) {
 		this.servicios = servicios;
 	}
+	
 	
 	public boolean isEstado() {
 		return estado;

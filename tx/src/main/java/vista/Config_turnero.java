@@ -96,7 +96,8 @@ public class Config_turnero {
 		btnAgregarPriori.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Prioridades p = new Prioridades(textPriori.getText());
-				aP.AgregarPrioridad(textPriori.getText());		
+				aP.AgregarPrioridad(textPriori.getText());	
+				textPriori.setText(null);
 			}
 		});
 		btnAgregarPriori.setBounds(271, 104, 89, 23);
@@ -105,9 +106,8 @@ public class Config_turnero {
 		JButton btnContinuar = new JButton("Continuar");
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VistaAsesores vista = new VistaAsesores();
-			//	vista.setVisible(true);	
-			}
+				VistaAsesores vista = new VistaAsesores();		
+				}
 		});
 		btnContinuar.setBounds(172, 182, 89, 23);
 		frame.getContentPane().add(btnContinuar);

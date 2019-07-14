@@ -42,6 +42,22 @@ public class AdministrarServicios {
 		return newServicio;
 	}
 	
+	public List<Servicios> obtenerListaServicios(){
+		List<Servicios> lista = new ArrayList<Servicios>();
+		return lista;
+	}
+	
+	public Servicios obtenerServicio(String name) {
+		List<Servicios> l = new ArrayList<Servicios>();
+		for(Servicios s : l ) {
+			if(name.equals(s.getNombre())) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	
 	/**
 	public void listarServicios() {
 		List<Servicios> servicio = List<Servicios>;

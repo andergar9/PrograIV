@@ -1,13 +1,26 @@
 package vista;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import controlador.AdministrarAsesores;
+import controlador.AdministrarServicios;
+import modelo.Asesor;
+import modelo.Servicios;
+
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
+import javax.swing.AbstractListModel;
 import javax.swing.JButton;
+import javax.swing.JToggleButton;
+import javax.swing.JRadioButton;
 import javax.swing.JList;
 
 public class VistaAsesores {
@@ -15,6 +28,9 @@ public class VistaAsesores {
 	private JFrame frame;
 	private JTextField textNasesor;
 	private JTextField textIdAsesor;
+	
+	AdministrarAsesores aa = new AdministrarAsesores();
+	AdministrarServicios as = new AdministrarServicios();
 
 	/**
 	 * Launch the application.
@@ -78,24 +94,38 @@ public class VistaAsesores {
 		frame.getContentPane().add(textIdAsesor);
 		textIdAsesor.setColumns(10);
 		
-		JList comboBoxServicios = new JList();
+		final JComboBox comboBoxServicios = new JComboBox();
 		comboBoxServicios.setBounds(128, 142, 143, 20);
 		frame.getContentPane().add(comboBoxServicios);
+		List<Servicios> listaServicios = as.obtenerListaServicios();
+		comboBoxServicios.addItem(listaServicios);
 		
-		JCheckBox chckbxSi = new JCheckBox("Si");
-		chckbxSi.setBounds(145, 180, 43, 23);
-		frame.getContentPane().add(chckbxSi);
 		
-		JCheckBox chckbxNo = new JCheckBox("No");
-		chckbxNo.setBounds(190, 180, 46, 23);
-		frame.getContentPane().add(chckbxNo);
+		final JRadioButton estadoActivar = new JRadioButton("Activar");
+		estadoActivar.setBounds(147, 180, 109, 23);
+		estadoActivar.setSelected(false);
+		frame.getContentPane().add(estadoActivar);
 		
 		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				List<Asesor> l = new ArrayList<Asesor>();
+				Asesor a = new Asesor(textIdAsesor.getText(), textNasesor.getText(), comboBoxServicios.getSelectedItem().toString(), estadoActivar.isSelected());
+				l.add(a);
+				aa.escribirAsesores(l, "Asesores.txt");
+				textIdAsesor.setText(null);
+				textNasesor.setText(null);
+				
+			}	
+		});
 		btnAgregar.setBounds(47, 239, 89, 23);
 		frame.getContentPane().add(btnAgregar);
 		
 		JButton btnContinuar = new JButton("Continuar");
 		btnContinuar.setBounds(190, 239, 89, 23);
 		frame.getContentPane().add(btnContinuar);
+		
+		
+		
 	}
 }
